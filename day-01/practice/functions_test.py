@@ -24,6 +24,6 @@ if env == "prd":
 def take_backup():
     print("Backup script started ...")
 
-
+day = input("Enter the day of the week: ")
 if day == "Monday":
     take_backup()
