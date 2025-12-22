@@ -10,7 +10,7 @@ def check_cpu_threshold():
     current_cpu = psutil.cpu_percent(interval=1) # DONE
     print("Current CPU %: ",current_cpu)
     if current_cpu > cpu_threshold:  # DONE
-        print("CPU Alert Email sent...")
+        print("CPU Alert Email sent...") # dummy email
     else:
         print("CPU in Safe state...")
 

@@ -87,7 +87,7 @@ python-for-devops/
 
 ## How to Use This Repository
 
-1. Clone the repository
+1. Fork the repository, sync-fork to get latest updates
 2. Create and activate a virtual environment
 3. Install dependencies using requirements.txt
 4. Follow the content day-wise
