@@ -8,7 +8,7 @@ class AWSUtils:
 
     def show_buckets(self):
 
-        for bucket in self.client.list_buckets()["Buckets"]:
+        for bucket in self.s3_client.list_buckets()["Buckets"]:
             self.buckets.append(bucket["Name"])
 
 
