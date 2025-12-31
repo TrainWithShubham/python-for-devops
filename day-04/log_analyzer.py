@@ -23,6 +23,8 @@ def analyze_logs():
                     log_count["WARNING"] += 1
                 elif "ERROR" in line:
                     log_count["ERROR"] += 1
+                else:
+                    pass  # Ignore lines without known log levels
 
     except FileNotFoundError:
         print("Log file not found.")
