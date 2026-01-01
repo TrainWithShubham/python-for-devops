@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.services.awsservice import get_aws_resources
+from app.services.aws_service import get_aws_resources
 
 router = APIRouter()
 
