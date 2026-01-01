@@ -6,7 +6,7 @@ from app.routes.aws_routes import router as aws_router
 app = FastAPI(title="DevOps Internal API", version="1.0")
 
 
-# ✅ ROOT ENDPOINT
+# ROOT ENDPOINT
 @app.get("/")
 def root():
     return {
