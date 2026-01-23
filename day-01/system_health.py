@@ -8,10 +8,11 @@ def check_cpu_usages(name,usages,limit):
     else:
         print("Usages is Ok")    
 
-cpu_limit = int(input("Enter CPU Threshold"))
-memory_limit = int(input("Enter Memory Threshold"))
-disk_limit = int(input("Enter Disk Threshhold"))
-
+for i in range(5):
+    cpu_limit = int(input("Enter CPU Threshold"))
+    memory_limit = int(input("Enter Memory Threshold"))
+    disk_limit = int(input("Enter Disk Threshhold"))
+    break
 print("\n Checking Systems Usages...")
 
 cpu_usage = psutil.cpu_percent(1)
