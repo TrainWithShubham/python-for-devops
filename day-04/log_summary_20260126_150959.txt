@@ -1,0 +1,5 @@
+=== Log Summary ===
+INFO: 10
+WARNING: 2
+ERROR: 3
+==================
