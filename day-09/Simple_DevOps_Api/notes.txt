@@ -1,0 +1,19 @@
+ To install all the dependencies recursively
+
+=> pip install -r requirements.txt
+
+To Run FastAPI [with auto reload]:
+
+=> unicorn main:app  --reload
+
+To see health endpoint
+
+=> http://127.0.0.1:8000/health 
+
+To see logs endpoint
+
+=> http://127.0.0.1:8000/log
+
+to see fastapi docs view
+
+=> http://127.0.0.1:8000/docs 
