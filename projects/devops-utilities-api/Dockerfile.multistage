@@ -1,0 +1,14 @@
+# Multistage Docker File 
+
+FROM python:3.14-slim AS builder
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt --target /app/package
+COPY . .
+
+FROM python:3.14-slim AS deployer
+WORKDIR /app
+COPY --from=builder /app .
+ENV PYTHONPATH=/app/package
+EXPOSE 8000
+CMD ["main.py"]
