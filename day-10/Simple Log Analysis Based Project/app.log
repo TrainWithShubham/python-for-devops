@@ -1,0 +1,21 @@
+2026-03-06  05:00:01 INFO Application started successfully
+2026-03-06  05:01:15 INFO Connecting to database
+2026-03-06  05:02:30 INFO Database connection established
+
+2026-03-06 05:03:12 WARNING High memory usage detected
+2026-03-06 04:05:15 INFO Memory usage back to normal
+
+2026-03-06 05:04:05 ERROR Failed to fetch user data
+2026-03-06 05:05:20 ERROR Database timeout occurred
+
+2026-03-06 05:06:05 INFO Retrying database connection
+2026-03-06 05:07:20 INFO Database connection successful
+
+2026-03-06 05:08:05 WARNING Disk usage above 75%
+2026-03-06 05:09:20 INFO Disk cleanup initiated
+
+2026-03-06 05:10:05 ERROR Unable to write logs to disk
+2026-03-06 05:11:20 INFO Log rotation completed
+
+2026-03-06 05:12:05 INFO Application shutdown initiated
+2026-03-06 05:13:20 INFO Application stopped
