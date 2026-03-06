@@ -1,0 +1,11 @@
+{
+    "EC2_Instances": [
+        {
+            "InstanceId": "i-5f3ffcb7002289693",
+            "State": "running"
+        }
+    ],
+    "S3_Buckets": [
+        "my-test-bucket"
+    ]
+}

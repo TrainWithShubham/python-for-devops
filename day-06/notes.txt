@@ -1,0 +1,4 @@
+To Python script into a CLI (Command Line Interface) tool.
+
+This Command used to run the file using CLI tool
+F:\Python Jan 2026\Day6> py log_analyzer_cli.py --file "F:\Python Jan 2026\Day6\app.log" --out "F:\Python Jan 2026\Day6\summary.txt" --level ERROR

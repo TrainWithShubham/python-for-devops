@@ -1,0 +1,3 @@
+I used moto to mock AWS services locally while implementing the required automation.
+[Facing some issue while working with  AWS at my end, Will upgrade this task using AWS Soon]
+

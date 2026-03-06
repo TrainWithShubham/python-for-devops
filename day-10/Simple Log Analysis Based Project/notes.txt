@@ -1,0 +1,22 @@
+Simple Log Analysis Based Project
+
+Using STAR Method
+
+Situation:
+	Checking Logs Manually was really time-consuming. The logs were growing day by day 
+	
+
+Task:
+                  I tried to automate logs using simple python script so the errors could be easily tracked.
+	
+
+Action:
+	I tried to wrote a pyhton script to parse log, to count the errors. after the py script executions
+	we can see the errors count in log_summary.file
+
+
+Result:
+	The PyScript reduced the effort to do everything manually & issues are now easily visible.
+
+
+Got Better understanding of DevOps using python      	   
