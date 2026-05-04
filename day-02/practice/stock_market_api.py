@@ -14,7 +14,7 @@ def get_stock_market_data(symbol,is_timeseries):
     for key, value in response.json().items():
         if is_timeseries:
             
-            print(key,value)
+            print(key,value) 
         else:
             if key == "Time Series (Daily)":
                 continue
