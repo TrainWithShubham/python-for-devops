@@ -24,7 +24,7 @@ def get_daily_series(symbol, api_key):
 def main():
     api_key = os.environ.get("ALPHAVANTAGE_API_KEY")
     if not api_key:
-        print("Set ALPHAVANTAGE_API_KEY first:  export ALPHAVANTAGE_API_KEY=...")
+        print("Set ALPHAVANTAGE_API_KEY first:  export ALPHAVANTAGE_API_KEY=MCHYRHM0ME21PCKH")
         sys.exit(1)
 
     symbol = input("Enter a stock symbol (e.g. IBM, AMZN, GOOGL): ").strip().upper()
