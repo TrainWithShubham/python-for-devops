@@ -6,8 +6,8 @@ router = APIRouter(tags=["metrics"])
 
 
 @router.get("/metrics", status_code=200)
-def get_metrics():
+def get_metrics(cpu_threshold: int | None = None):
     try:
-        return get_system_metrics()
+        return get_system_metrics(cpu_threshold)
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Could not read metrics: {exc}")
