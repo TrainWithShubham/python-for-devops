@@ -20,3 +20,11 @@ def count_log_levels(text):
 
 def read_log_file(path):
     return Path(path).read_text(encoding="utf-8")
+
+
+def read_log_tail(path: str, n: int = 5) -> str:
+    text = read_log_file(path)
+    lines = text.splitlines()
+    if n <= 0:
+        return ""
+    return "\n".join(lines[-n:])

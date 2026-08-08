@@ -16,7 +16,7 @@ from langgraph.graph import START, StateGraph
 from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
 
-from log_utils import LEVELS, count_log_levels, read_log_file
+from log_utils import LEVELS, count_log_levels, read_log_file, read_log_tail
 
 APP_LOG = str(Path(__file__).parent / "app.log")
 MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2")
@@ -24,6 +24,7 @@ MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2")
 SYSTEM_PROMPT = (
     "You are a Log Analysis Agent for DevOps engineers. "
     "Always use the analyze_log_file tool to get exact counts, never guess. "
+    "If the user asks for actual log text, use the read_log_tail tool. "
     "State the INFO/WARNING/ERROR counts, then give a one or two line summary. "
     "Suggest ideas only, never perform production actions."
 )
@@ -36,12 +37,18 @@ def analyze_log_file(path: str) -> str:
     return ", ".join(f"{level}={counts[level]}" for level in LEVELS)
 
 
+@tool
+def read_log_tail_tool(path: str, n: int = 5) -> str:
+    """Return the last n lines of a log file."""
+    return read_log_tail(path, n)
+
+
 def make_model():
     return ChatOllama(model=MODEL, base_url="http://localhost:11434", temperature=0)
 
 
 def build_agent():
-    return create_agent(make_model(), tools=[analyze_log_file], system_prompt=SYSTEM_PROMPT)
+    return create_agent(make_model(), tools=[analyze_log_file, read_log_tail_tool], system_prompt=SYSTEM_PROMPT)
 
 
 # The same agent <-> tools loop that create_agent gives you, built by hand so you
@@ -51,14 +58,14 @@ class AgentState(TypedDict):
 
 
 def build_custom_agent():
-    llm_with_tools = make_model().bind_tools([analyze_log_file])
+    llm_with_tools = make_model().bind_tools([analyze_log_file, read_log_tail_tool])
 
     def call_model(state: AgentState):
-        return {"messages": [llm_with_tools.invoke(state["messages"])]}
+        return {"messages": [llm_with_tools.invoke(state["messages"]) ]}
 
     graph = StateGraph(AgentState)
     graph.add_node("agent", call_model)
-    graph.add_node("tools", ToolNode([analyze_log_file]))
+    graph.add_node("tools", ToolNode([analyze_log_file, read_log_tail_tool]))
     graph.add_edge(START, "agent")
     graph.add_conditional_edges("agent", tools_condition)
     graph.add_edge("tools", "agent")
