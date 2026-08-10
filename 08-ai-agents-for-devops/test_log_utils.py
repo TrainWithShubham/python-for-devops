@@ -26,3 +26,15 @@ def test_bundled_app_log():
     app_log = Path(__file__).parent / "app.log"
     counts = count_log_levels(read_log_file(str(app_log)))
     assert counts == {"INFO": 10, "WARNING": 2, "ERROR": 3}
+
+
+def test_read_log_tail():
+    from log_utils import read_log_tail
+
+    path = Path(__file__).parent / "app.log"
+    text = read_log_file(str(path))
+    lines = text.splitlines()
+    expected = "\n".join(lines[-2:])
+
+    assert read_log_tail(str(path), n=2) == expected
+    assert read_log_tail(str(path), n=0) == ""

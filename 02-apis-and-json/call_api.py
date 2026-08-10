@@ -2,7 +2,7 @@
 
 import requests
 
-API_URL = "https://jsonplaceholder.typicode.com/todos/1"
+API_URL = "https://jsonplaceholder.typicode.com/todos/2"
 
 
 def fetch_todo(url):
@@ -17,8 +17,8 @@ def main():
     for key, value in todo.items():
         print(f"{key:10}: {value}")
 
-    if todo.get("userId") == 1:
-        print("\n>> This todo belongs to user 1")
+    if todo.get("userId") == 2:
+        print("\n>> This todo belongs to user 2")
 
 
 if __name__ == "__main__":

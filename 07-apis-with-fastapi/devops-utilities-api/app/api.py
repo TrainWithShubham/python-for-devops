@@ -19,6 +19,9 @@ def hello():
 def health():
     return {"status": "ok"}
 
+@app.get("/version")
+def version():
+    return {"version": "1.2.0"}
 
 app.include_router(metrics.router)
 app.include_router(logs.router)

@@ -70,3 +70,4 @@ Wire up the agent yourself:
 2. Pass the `analyze_log_file` tool to `create_agent(model, tools=[...], system_prompt=...)`.
 3. Invoke it with a `HumanMessage` asking it to analyze `app.log`, and print the result.
 4. Bonus: add a second tool (e.g. return the last N lines) and watch how it chooses.
+5. The module now includes a `read_log_tail` tool so the agent can return the last N lines of the log file on request.
